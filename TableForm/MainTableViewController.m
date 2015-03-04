@@ -55,10 +55,16 @@
 
 -(void)setupTextFields {
     self.pillNameTextField=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 226.0, 48.0)];
+    self.pillNameTextField.placeholder=@"Pill Name";
     self.refillsRemainTextField=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 226.0, 48.0)];
+    self.refillsRemainTextField.placeholder=@"Number of Refills";
     self.pillsLeftTextField=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 226.0, 48.0)];
+    self.pillsLeftTextField.placeholder=@"Number of Pills Remaining";
+    
     self.pharmPhoneTextField=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 226.0, 48.0)];
+    self.pharmPhoneTextField.placeholder=@"Pharmacy Phone";
     self.drPhoneTextField=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 226.0, 48.0)];
+    self.drPhoneTextField.placeholder=@"Prescribing Doctor Phone";
 }
 
 -(void)saveData {
@@ -72,6 +78,8 @@
     if (cell == nil) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
     }
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     if (indexPath.row == 0) {
         
