@@ -58,6 +58,18 @@
     self.pillNameTextField.placeholder=@"Pill Name";
     self.refillsRemainTextField=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 226.0, 48.0)];
     self.refillsRemainTextField.placeholder=@"Number of Refills";
+    self.refillsRemainTextField.keyboardType=UIKeyboardTypeNumberPad;
+    
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    
+    self.refillsRemainTextField.inputAccessoryView=numberToolbar;
+    
     self.pillsLeftTextField=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 226.0, 48.0)];
     self.pillsLeftTextField.placeholder=@"Number of Pills Remaining";
     
@@ -65,6 +77,10 @@
     self.pharmPhoneTextField.placeholder=@"Pharmacy Phone";
     self.drPhoneTextField=[[UITextField alloc] initWithFrame:CGRectMake(0, 0, 226.0, 48.0)];
     self.drPhoneTextField.placeholder=@"Prescribing Doctor Phone";
+}
+
+-(void)doneWithNumberPad {
+    [self.refillsRemainTextField resignFirstResponder];
 }
 
 -(void)saveData {
